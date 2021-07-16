@@ -7,7 +7,7 @@ const Index = (props) => <WebsiteFeature {...props} />;
 export async function getServerSideProps({ req }) {
   console.log('req.host >> ', req.hostname);
   const response = await api.get(`${URL_API_GET_WEBSITE}/${req.hostname}`);
-
+  console.log('response.data >>>>> ', response.data);
   if (!response.data) {
     return {
       notFound: true,
