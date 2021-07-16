@@ -1,7 +1,7 @@
 export const baseURL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/api'
-    : 'https://gsheets.onrender.com/api';
+    : 'https://google-sheets-dns.onrender.com/api';
 
 export const SITE_NAME = 'Diflex';
 
