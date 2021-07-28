@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { currencyFormatter } from '../../../../helpers';
+import { currencyFormatter } from '../helpers';
+import { URL_PAGE_SINGLE_ITEM, URL_PAGE_CATEGORY } from '../../../../constants';
 
-const Card = ({ data }) => {
+const Card = ({ data, siteId }) => {
   const {
     title,
     price,
@@ -11,10 +12,14 @@ const Card = ({ data }) => {
     link,
     comment,
     button,
-    filter,
+    category,
     description,
     id,
   } = data;
+
+  const productLink = link.includes('http')
+    ? link
+    : `${URL_PAGE_SINGLE_ITEM}/${link}`;
 
   return (
     <Container>
@@ -24,20 +29,19 @@ const Card = ({ data }) => {
             {button}
           </a> 
           <div>{description}</div> */}
-          <Link href={link}>
-            <a target="_blank" rel="noreferrer">
+          <Link href={{ pathname: productLink }}>
+            <a>
               <img src={image} alt={title} />
             </a>
           </Link>
-
           <h6>
-            <Link href={link}>
-              <a href={link}>{title}</a>
+            <Link href={{ pathname: productLink }}>
+              <a>{title}</a>
             </Link>
           </h6>
-          <h5>{currencyFormatter(price)}</h5>
         </div>
         <div className="product_extra">
+          <div className="price">{currencyFormatter(price)}</div>
           <div>
             <strong>Rating:</strong> {tag}
           </div>
@@ -47,8 +51,15 @@ const Card = ({ data }) => {
             </div>
           )}
           <div className="product_filters">
-            {filter.map((res, i) => (
-              <span key={i}>{res}</span>
+            {category.map((res, i) => (
+              <Link
+                key={i}
+                href={{
+                  pathname: `${URL_PAGE_CATEGORY}/${res.slug}`,
+                }}
+              >
+                <a>{res.title}</a>
+              </Link>
             ))}
           </div>
         </div>
@@ -58,7 +69,7 @@ const Card = ({ data }) => {
 };
 
 const Container = styled.div`
-  padding: 10px 15px;
+  padding: 20px 10px;
   margin: 0 10px 10px;
   border-bottom: 1px solid rgb(224, 224, 224);
 `;
@@ -69,7 +80,8 @@ const Wrap = styled.div`
   align-content: space-between;
   align-items: center;
   h6 {
-    margin: 0 0 5px;
+    margin: 0;
+    font-size: 18px;
   }
   h5 {
     margin: 0 0 10px;
@@ -84,9 +96,13 @@ const Wrap = styled.div`
     font-weight: 300;
     color: #3a3a3a;
     text-align: left;
+    .price {
+      font-weight: 400;
+    }
   }
   .product_filters {
-    span {
+    line-height: 2;
+    a {
       background-color: #e9ecf0;
       color: #3a3a3a;
       margin-right: 10px;

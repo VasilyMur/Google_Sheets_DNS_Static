@@ -1,5 +1,6 @@
 import App from 'next/app';
 import Page from '../components/Page';
+import CartProvider from '../components/Features/WebsiteFeatureThemeOne/CartProvider';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -17,9 +18,11 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Page pathName={this.props.router.pathname}>
-        <Component {...pageProps} />
-      </Page>
+      <CartProvider>
+        <Page pathName={this.props.router.pathname}>
+          <Component {...pageProps} />
+        </Page>
+      </CartProvider>
     );
   }
 }

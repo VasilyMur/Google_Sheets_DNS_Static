@@ -37,14 +37,6 @@ nextApp
     // API routes
     server.use('/api/', routes);
 
-    server.get('/:singleUrl', (req, res) => {
-      const actualPage = '/singlecardpage';
-      const queryParams = {
-        singleUrl: req.params.singleUrl,
-      };
-      nextApp.render(req, res, actualPage, queryParams);
-    });
-
     // Catch all pages
     server.get('*', (req, res) => handle(req, res));
 

@@ -11,3 +11,6 @@ export const URL_API_GET_WEBSITE = '/getWebsite';
 // PAGES
 export const URL_PAGES_MAIN_PAGE = '/';
 export const URL_PAGE_NOT_FOUND = '/404';
+export const URL_PAGE_CART = '/cart';
+export const URL_PAGE_SINGLE_ITEM = '/item';
+export const URL_PAGE_CATEGORY = '/category';
