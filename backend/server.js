@@ -35,12 +35,15 @@ nextApp
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
 
-    // server.use((req, res, next) => {
-    //   const { host } = req.headers;
-    //   console.log('req.host >> ', host);
+    server.use((req, res, next) => {
+      const { host } = req.headers;
+      console.log(
+        'req.host server ---------------------------------------------------------->> ',
+        host
+      );
 
-    //   next();
-    // });
+      next();
+    });
     // API routes
     server.use('/api/', routes);
 
