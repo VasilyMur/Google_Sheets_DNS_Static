@@ -6,6 +6,7 @@ mongoose.Promise = global.Promise;
 exports.getWebsite = async (req, res) => {
   try {
     console.log('req.hostname !!!!!!!!!!->>>>> ', req.hostname);
+    console.log('req.headers >  !!!!!!!!!!->>>>> ', req.headers);
     const item = await Website.findOne({ domain: 'test' });
     // let item = '';
     // if (req.hostname !== 'google-sheets-dns.onrender.com') {
