@@ -5,13 +5,14 @@ mongoose.Promise = global.Promise;
 
 exports.getWebsite = async (req, res) => {
   try {
-    console.log('req.hostname >>>>> ', req.hostname);
-    let item = '';
-    if (req.hostname !== 'google-sheets-dns.onrender.com') {
-      item = await Website.findOne({ domain: req.hostname });
-    } else {
-      item = await Website.findOne({ domain: 'test' });
-    }
+    console.log('req.hostname !!!!!!!!!!->>>>> ', req.hostname);
+    const item = await Website.findOne({ domain: 'test' });
+    // let item = '';
+    // if (req.hostname !== 'google-sheets-dns.onrender.com') {
+    //   item = await Website.findOne({ domain: req.hostname });
+    // } else {
+    //   item = await Website.findOne({ domain: 'test' });
+    // }
 
     if (!item || !Object.keys(item)) {
       return res.status(404).json('404');
