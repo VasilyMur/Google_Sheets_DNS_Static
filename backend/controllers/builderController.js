@@ -7,6 +7,8 @@ exports.getWebsite = async (req, res) => {
   try {
     console.log('req.hostname !!!!!!!!!!->>>>> ', req.hostname);
     console.log('req.headers >  !!!!!!!!!!->>>>> ', req.headers);
+    console.log('req.get host >  !!!!!!!!!!->>>>> ', req.get('host'));
+    console.log('req.get(origin); >  !!!!!!!!!!->>>>> ', req.get('origin'));
     const item = await Website.findOne({ domain: 'test' });
     // let item = '';
     // if (req.hostname !== 'google-sheets-dns.onrender.com') {
