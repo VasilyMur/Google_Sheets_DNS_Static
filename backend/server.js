@@ -35,16 +35,12 @@ nextApp
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
 
-    server.use((req, res, next) => {
-      console.log('req.session >> ', req.session);
-      const { host } = req.headers;
-      const { origin } = req.headers;
-      console.log('req.user >> ', req.user);
-      console.log('req.user >> ', req.headers);
-      console.log('req.host >> ', host);
-      console.log('req.origin >> ', origin);
-      next();
-    });
+    // server.use((req, res, next) => {
+    //   const { host } = req.headers;
+    //   console.log('req.host >> ', host);
+
+    //   next();
+    // });
     // API routes
     server.use('/api/', routes);
 
