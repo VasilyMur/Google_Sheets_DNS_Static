@@ -19,6 +19,7 @@ exports.getWebsite = async (req, res) => {
     }
     res.status(200).send(item);
   } catch (err) {
+    console.log('errrr controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', err);
     return res.status(500).json(err);
   }
 };
