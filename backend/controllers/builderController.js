@@ -92,9 +92,14 @@ exports.builderSync = async (req, res) => {
 exports.getWebsite = async (req, res) => {
   try {
     console.log('req.hostname >>>>> ', req.hostname);
-    const item = await Website.findOne({ domain: req.hostname });
+    let item = '';
+    if (req.hostname !== 'google-sheets-dns.onrender.com') {
+      item = await Website.findOne({ domain: req.hostname });
+    } else {
+      item = await Website.findOne({ domain: 'test' });
+    }
 
-    if (!item) {
+    if (!item || !Object.keys(item)) {
       return res.status(404).json('404');
     }
     res.status(200).send(item);
