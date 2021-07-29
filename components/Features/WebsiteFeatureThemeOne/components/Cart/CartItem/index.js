@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import RemoveFromCart from '../RemoveFromCart';
-import { currencyFormatter } from '../../../../../../helpers';
+import { currencyFormatter } from '../../../helpers';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;

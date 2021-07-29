@@ -7,7 +7,7 @@ import {
   totalQuantity,
   calcTotalPrice,
   currencyFormatter,
-} from '../../../../../helpers';
+} from '../../helpers';
 
 const handleClick = () => {
   console.log('clickkk');
