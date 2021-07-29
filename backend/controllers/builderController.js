@@ -13,7 +13,7 @@ exports.getWebsite = async (req, res) => {
     const item = await Website.findOne({ domain: 'test' });
 
     const testRequest = await axios.get(
-      'https://gsheets.onrender.com/api/getWebsite'
+      'https://gsheets.onrender.com/api/testWebsite'
     );
 
     console.log('testRequest >>> ', testRequest.data);
