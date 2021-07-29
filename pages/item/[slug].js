@@ -18,7 +18,6 @@ const Item = (props) => (
 
 export const getStaticPaths = async () => {
   const response = await api.get(`${URL_API_GET_WEBSITE}`);
-  console.log('item getstatic PATHS response >>> ', response);
   const { data } = response;
 
   if (!data || !Object.keys(data).length) {
@@ -48,7 +47,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const response = await api.get(`${URL_API_GET_WEBSITE}`);
-  console.log('item getstaticProps response >>> ', response);
   const { data } = response;
 
   if (!data || !Object.keys(data).length) {
