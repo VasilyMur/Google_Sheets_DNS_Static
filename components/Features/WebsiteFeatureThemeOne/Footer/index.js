@@ -30,10 +30,7 @@ const Footer = ({ data, siteId, pages }) => {
                   <h3>More Info</h3>
                   <div className="linksColumn">
                     {pages.map((res, i) => (
-                      <Link
-                        key={i}
-                        href={`/website/${siteId}/static/${res.url}`}
-                      >
+                      <Link key={i} href={`/${res.url}`}>
                         <a>{res.title}</a>
                       </Link>
                     ))}

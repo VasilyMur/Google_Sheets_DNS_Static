@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Cart from '../components/Cart';
 import SEO from '../seo';
 import { useWebsiteData } from '../hooks';
+import { URL_PAGE_CART } from '../../../../constants';
 
 const WebsiteCartFeature = ({
   data,
@@ -27,7 +28,7 @@ const WebsiteCartFeature = ({
         title="Shopping cart page"
         description="Shopping cart page - complete your purchase"
         siteDomain={domain}
-        canonical="cart"
+        canonical={URL_PAGE_CART}
       />
       <Wrap>
         {cardsMappedByIds && Object.keys(cardsMappedByIds).length && (

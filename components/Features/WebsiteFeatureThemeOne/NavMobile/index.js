@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import CartIconStyles from '../styles/CartIconStyles';
 import { uniqueCategoryTitlesFromCards } from '../helpers';
-import { URL_PAGE_CATEGORY } from '../../../../constants';
+import { URL_PAGE_CATEGORY, URL_PAGE_CART } from '../../../../constants';
 
-const NavMobile = ({ cards, siteId, products }) => {
+const NavMobile = ({ cards, products }) => {
   const categories = uniqueCategoryTitlesFromCards(cards);
   // Some cards dont't have an ID
   const missingId = cards.some((res) => !res.id);
@@ -23,7 +23,7 @@ const NavMobile = ({ cards, siteId, products }) => {
           ))}
           {missingId ? null : (
             <li>
-              <Link href={`/website/${siteId}/cart`}>
+              <Link href={`${URL_PAGE_CART}`}>
                 <a>
                   <CartIconStyles products={products} color="#000">
                     <RiShoppingCartLine />

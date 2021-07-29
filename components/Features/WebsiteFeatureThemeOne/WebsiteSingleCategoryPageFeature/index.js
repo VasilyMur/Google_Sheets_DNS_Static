@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import HeroBlock from '../components/HeroBlock';
 import SEO from '../seo';
 import { useWebsiteData } from '../hooks';
+import { URL_PAGE_CATEGORY } from '../../../../constants';
 
 const WebsiteSingleCategoryPageFeature = ({
   data,
@@ -30,7 +31,7 @@ const WebsiteSingleCategoryPageFeature = ({
         title={seotitle}
         description={seodescription}
         siteDomain={domain}
-        canonical={`category/${title && title.toLowerCase()}`}
+        canonical={`${URL_PAGE_CATEGORY}/${title && title.toLowerCase()}`}
       />
       <Wrap>
         <HeroBlock

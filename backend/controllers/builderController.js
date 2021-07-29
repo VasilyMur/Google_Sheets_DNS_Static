@@ -91,8 +91,8 @@ exports.builderSync = async (req, res) => {
 
 exports.getWebsite = async (req, res) => {
   try {
-    // console.log('req.hostname >>>>> ', req.hostname);
-    const item = await Website.findOne({ domain: 'sleepyme.ru' });
+    console.log('req.hostname >>>>> ', req.hostname);
+    const item = await Website.findOne({ domain: req.hostname });
 
     if (!item) {
       return res.status(404).json('404');

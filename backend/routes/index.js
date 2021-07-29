@@ -14,7 +14,7 @@ const corsOptions = {
 router.post('/builderSync', builderController.builderSync);
 
 // CURRENT:
-// router.get('/getWebsite', cors(corsOptions), builderController.getWebsite);
-router.get('/getWebsite', builderController.getWebsite);
+router.get('/getWebsite', cors(corsOptions), builderController.getWebsite);
+// router.get('/getWebsite', builderController.getWebsite);
 
 module.exports = router;

@@ -22,7 +22,7 @@ const WebsiteStaticPageFeature = ({ data, dataPage, products }) => {
         title={seotitle}
         description={seodescription}
         siteDomain={domain}
-        canonical={url}
+        canonical={`/${url}`}
       />
       <Wrap>
         <h1>{title}</h1>

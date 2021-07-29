@@ -52,6 +52,7 @@ const StyledImage = styled.div`
   max-width: 300px;
   margin: 0 auto;
   padding: 10px;
+  cursor: pointer;
   img {
     width: 100%;
     height: 100%;

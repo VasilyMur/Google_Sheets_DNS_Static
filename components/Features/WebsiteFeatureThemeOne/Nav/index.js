@@ -4,9 +4,9 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 import NavMobileButton from '../components/NavMobileButton';
 import CartIconStyles from '../styles/CartIconStyles';
 import { uniqueCategoryTitlesFromCards, totalQuantity } from '../helpers';
-import { URL_PAGE_CATEGORY } from '../../../../constants';
+import { URL_PAGE_CATEGORY, URL_PAGE_CART } from '../../../../constants';
 
-const Nav = ({ cards, siteId, products, toggleMenu }) => {
+const Nav = ({ cards, products, toggleMenu }) => {
   const categories = uniqueCategoryTitlesFromCards(cards);
   const quantity = totalQuantity(Object.values(products));
   // Some cards dont't have an ID
@@ -25,7 +25,7 @@ const Nav = ({ cards, siteId, products, toggleMenu }) => {
         </StyledNav>
 
         {missingId ? null : (
-          <Link href={`/website/${siteId}/cart`}>
+          <Link href={`${URL_PAGE_CART}`}>
             <CartIconLink>
               <CartIconStyles products={products} color="#fff">
                 <RiShoppingCartLine />

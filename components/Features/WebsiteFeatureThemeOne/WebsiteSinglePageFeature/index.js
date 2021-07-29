@@ -6,6 +6,7 @@ import Card from '../Card';
 import SEO from '../seo';
 import { currencyFormatter } from '../helpers';
 import { useWebsiteData } from '../hooks';
+import { URL_PAGE_SINGLE_ITEM } from '../../../../constants';
 
 const WebsiteSinglePageFeature = ({
   data,
@@ -46,7 +47,7 @@ const WebsiteSinglePageFeature = ({
         title={title}
         description={description}
         siteDomain={domain}
-        canonical={`items/${link}`}
+        canonical={`${URL_PAGE_SINGLE_ITEM}/${link}`}
       />
       <Wrap>
         <ProductWrap>
