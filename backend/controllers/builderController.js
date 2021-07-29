@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const mongoose = require('mongoose');
 require('../models/Website');
 const Website = mongoose.model('Website');
@@ -10,6 +11,12 @@ exports.getWebsite = async (req, res) => {
     console.log('req.headers >  !!!!!!!!!!->>>>> ', req.headers);
 
     const item = await Website.findOne({ domain: 'test' });
+
+    const testRequest = await axios.get(
+      'https://gsheets.onrender.com/api/getWebsite'
+    );
+
+    console.log('testRequest >>> ', testRequest.data);
     // let item = '';
     // if (req.hostname !== 'google-sheets-dns.onrender.com') {
     //   item = await Website.findOne({ domain: req.hostname });
