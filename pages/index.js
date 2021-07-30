@@ -16,7 +16,25 @@ const Index = (props) => (
   </CartConsumer>
 );
 
-export async function getServerSideProps({ req }) {
+// export async function getServerSideProps({ req }) {
+//   const response = await api.get(`${URL_API_GET_WEBSITE}`);
+//   const { data } = response;
+
+//   if (!data || !Object.keys(data).length) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: {
+//       data: response.data,
+//       // user,
+//     }, // will be passed to the page component as props
+//   };
+// }
+
+export const getStaticProps = async () => {
   const response = await api.get(`${URL_API_GET_WEBSITE}`);
   const { data } = response;
 
@@ -28,11 +46,9 @@ export async function getServerSideProps({ req }) {
 
   return {
     props: {
-      data: response.data,
-      host: req.hostname,
-      // user,
-    }, // will be passed to the page component as props
+      data,
+    },
   };
-}
+};
 
 export default Index;

@@ -7,7 +7,7 @@ import HeroBlock from './components/HeroBlock';
 import SEO from './seo';
 import { useWebsiteData } from './hooks';
 
-const WebsiteFeature = ({ products, data }) => {
+const WebsiteFeatureThemeOne = ({ products, data }) => {
   const {
     header,
     footer,
@@ -56,4 +56,4 @@ const Wrap = styled.div`
   margin: 40px auto;
 `;
 
-export default WebsiteFeature;
+export default WebsiteFeatureThemeOne;
