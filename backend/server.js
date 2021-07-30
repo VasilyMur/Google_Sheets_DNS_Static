@@ -35,14 +35,6 @@ nextApp
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
 
-    server.use((req, res, next) => {
-      console.log(
-        'req.hostname >>>SERVER<<< -------------------------------------->> ',
-        req.hostname
-      );
-
-      next();
-    });
     // API routes
     server.use('/api/', routes);
 
