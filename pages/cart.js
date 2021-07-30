@@ -18,7 +18,7 @@ const Cart = (props) => (
   </CartConsumer>
 );
 
-export async function getServerSideProps({ query }) {
+export const getStaticProps = async () => {
   const response = await api.get(`${URL_API_GET_WEBSITE}`);
   const { data } = response;
 
@@ -46,17 +46,12 @@ export async function getServerSideProps({ query }) {
 
   const cardsMappedByIds = uniqueProductIdsFromCards(cards);
 
-  //   if (req.user) {
-  //     const { email, role } = req.user;
-  //     user = { email, role };
-  //   }
-
   return {
     props: {
       data,
       cardsMappedByIds,
     }, // will be passed to the page component as props
   };
-}
+};
 
 export default Cart;
