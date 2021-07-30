@@ -6,9 +6,7 @@ mongoose.Promise = global.Promise;
 
 exports.getWebsite = async (req, res) => {
   try {
-    console.log('req.host !!!!!!!!!!->>>>> ', req.host);
-    console.log('req.hostname !!!!!!!!!!->>>>> ', req.hostname);
-    console.log('req.headers >  !!!!!!!!!!->>>>> ', req.headers);
+    console.log('req.hostname >>ROUTE<<-----', req.hostname);
 
     const item = await Website.findOne({ domain: 'test' });
 

@@ -36,13 +36,8 @@ nextApp
     server.use(express.urlencoded({ extended: true }));
 
     server.use((req, res, next) => {
-      const { host } = req.headers;
       console.log(
-        'req.host server ---------------------------------------------------------->> ',
-        host
-      );
-      console.log(
-        'req.hostNAME server ---------------------------------------------------------->> ',
+        'req.hostname >>>SERVER<<< -------------------------------------->> ',
         req.hostname
       );
 
