@@ -6,9 +6,9 @@ mongoose.Promise = global.Promise;
 
 exports.getWebsite = async (req, res) => {
   try {
-    console.log('req.hostname >>ROUTE<<-----', req.hostname);
+    console.log(' process.env.WEBSITE_NAME >>>>> ', process.env.WEBSITE_NAME);
 
-    const item = await Website.findOne({ domain: 'test' });
+    const item = await Website.findOne({ domain: process.env.WEBSITE_NAME });
 
     // const testRequest = await axios.get(
     //   'https://gsheets.onrender.com/api/testWebsite'
