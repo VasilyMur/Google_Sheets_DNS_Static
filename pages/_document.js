@@ -21,6 +21,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400,500,700&amp;subset=latin-ext"
             rel="stylesheet"
           />
+          {this.props.styleTags}
         </Head>
         <body>
           <Main />
