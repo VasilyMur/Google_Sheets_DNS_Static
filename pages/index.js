@@ -34,7 +34,7 @@ const Index = (props) => (
 //   };
 // }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context) => {
   const response = await api.get(`${URL_API_GET_WEBSITE}`);
   const { data } = response;
 
@@ -47,6 +47,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       data,
+      currentPage: 1,
     },
   };
 };

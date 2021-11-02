@@ -14,14 +14,17 @@ const WebsiteFeatureThemeOne = ({ products, data }) => {
     cards,
     pages,
     hero,
-    textmain,
-    frontseo,
-    cardsheader,
+    layout,
+    sitesettings,
+    social,
     domain,
     _id,
+    crispId,
   } = useWebsiteData(data);
 
-  const { title, description, canonical } = frontseo;
+  const { title, description, pagination, canonical } = sitesettings;
+  const { textblock, cardsheader } = layout;
+  // const router = useRouter();
   return (
     <Container>
       <Layout
@@ -39,7 +42,7 @@ const WebsiteFeatureThemeOne = ({ products, data }) => {
           canonical=""
         />
         <HeroBlock data={hero} />
-        {textmain && <TopTextBlock data={textmain} />}
+        {textblock && <TopTextBlock data={textblock} />}
         <Wrap>
           {!!cards.length && (
             <CardsGrid data={cards} siteId={_id} cardsheader={cardsheader} />

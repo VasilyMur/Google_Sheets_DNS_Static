@@ -8,7 +8,8 @@ exports.getWebsite = async (req, res) => {
   try {
     console.log('req.hostname >>ROUTE<<-----', req.hostname);
 
-    const item = await Website.findOne({ domain: 'test' });
+    const item = await Website.findOne({ domain: req.hostname });
+    // const item = await Website.findOne({ domain: 'sleepyme.ru' });
 
     // const testRequest = await axios.get(
     //   'https://gsheets.onrender.com/api/testWebsite'

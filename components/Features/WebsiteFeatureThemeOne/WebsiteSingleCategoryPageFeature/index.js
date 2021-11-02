@@ -8,15 +8,39 @@ import SEO from '../seo';
 import { useWebsiteData } from '../hooks';
 import { URL_PAGE_CATEGORY } from '../../../../constants';
 
+const defaultCategoryData = {
+  title: 'Default Title',
+  header: 'Default header',
+  description: 'Default description',
+  image:
+    'https://res.cloudinary.com/dlmeqtsfq/image/upload/v1635415813/GSHEETS_MAIN/blank_page.jpg',
+  seoTitle: '',
+  seoDescription: '',
+  slug: 'default',
+};
+
 const WebsiteSingleCategoryPageFeature = ({
   data,
   dataCategory,
+  filterData,
   currentCategory,
   products,
 }) => {
-  const { header, footer, pages, domain, cards, _id } = useWebsiteData(data);
-  const { details } = currentCategory;
-  const { title, seotitle, seodescription } = details;
+  const { header, social, footer, pages, domain, cards, categories, _id } =
+    useWebsiteData(data);
+
+  const currentCategoryDetails = categories.find(
+    (res) => res.slug === currentCategory.slug
+  );
+
+  let detailsData = {};
+  if (currentCategoryDetails && Object.keys(currentCategoryDetails).length) {
+    detailsData = currentCategoryDetails;
+  } else {
+    detailsData = defaultCategoryData;
+  }
+
+  const { title, seoTitle, seoDescription } = detailsData;
 
   return (
     <Layout
@@ -28,17 +52,17 @@ const WebsiteSingleCategoryPageFeature = ({
       pages={pages}
     >
       <SEO
-        title={seotitle}
-        description={seodescription}
+        title={seoTitle}
+        description={seoDescription}
         siteDomain={domain}
         canonical={`${URL_PAGE_CATEGORY}/${title && title.toLowerCase()}`}
       />
       <Wrap>
         <HeroBlock
           data={{
-            title: details.header,
-            subtitle: details.description,
-            image: details.image,
+            title: detailsData.header,
+            subtitle: detailsData.description,
+            image: detailsData.image,
           }}
           pageType="category"
         />

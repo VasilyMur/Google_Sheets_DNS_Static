@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 const baseSiteData = {
   cards: [],
+  categories: [],
   pages: [],
-  cardsheader: '',
   domain: '',
+  _id: '',
   footer: {
+    title: '',
     email: '',
     phone: '',
-    title: '',
+    address: '',
   },
   header: {
     image: '',
@@ -19,8 +21,35 @@ const baseSiteData = {
     subtitle: '',
     title: '',
   },
-  textmain: '',
-  frontseo: {},
+  social: {
+    fb: '',
+    instagram: '',
+    twitter: '',
+  },
+  layout: {
+    header: '',
+    navbar: '',
+    hero: '',
+    textblock: '',
+    cardsheader: '',
+    cards: '',
+    footer: '',
+  },
+  sitesettings: {
+    title: '',
+    description: '',
+    canonical: '',
+    pagination: '',
+    ganalyticsid: '',
+    gtagid: '',
+    amazonid: '',
+    favicon: '',
+  },
+  crispId: '',
+  stripe: {
+    keyPublish: '',
+    currency: '',
+  },
 };
 // Site Data Hook
 export const useWebsiteData = (data) => {
